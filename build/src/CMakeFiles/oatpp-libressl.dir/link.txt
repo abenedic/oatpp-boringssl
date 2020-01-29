@@ -1,0 +1,2 @@
+/usr/bin/ar qc liboatpp-libressl.a  CMakeFiles/oatpp-libressl.dir/oatpp-libressl/Callbacks.cpp.o CMakeFiles/oatpp-libressl.dir/oatpp-libressl/Config.cpp.o CMakeFiles/oatpp-libressl.dir/oatpp-libressl/Connection.cpp.o CMakeFiles/oatpp-libressl.dir/oatpp-libressl/client/ConnectionProvider.cpp.o CMakeFiles/oatpp-libressl.dir/oatpp-libressl/server/ConnectionProvider.cpp.o CMakeFiles/oatpp-libressl.dir/oatpp-libressl/TLSObject.cpp.o
+/usr/bin/ranlib liboatpp-libressl.a
