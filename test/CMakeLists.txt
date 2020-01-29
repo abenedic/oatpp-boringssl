@@ -1,15 +1,15 @@
 add_executable(module-tests
-        oatpp-libressl/tests.cpp
-        oatpp-libressl/FullTest.cpp
-        oatpp-libressl/FullTest.hpp
-        oatpp-libressl/FullAsyncTest.cpp
-        oatpp-libressl/FullAsyncTest.hpp
-        oatpp-libressl/FullAsyncClientTest.cpp
-        oatpp-libressl/FullAsyncClientTest.hpp
-        oatpp-libressl/app/Controller.hpp
-        oatpp-libressl/app/AsyncController.hpp
-        oatpp-libressl/app/Client.hpp
-        oatpp-libressl/app/DTOs.hpp
+        oatpp-boringssl/tests.cpp
+        oatpp-boringssl/FullTest.cpp
+        oatpp-boringssl/FullTest.hpp
+        oatpp-boringssl/FullAsyncTest.cpp
+        oatpp-boringssl/FullAsyncTest.hpp
+        oatpp-boringssl/FullAsyncClientTest.cpp
+        oatpp-boringssl/FullAsyncClientTest.hpp
+        oatpp-boringssl/app/Controller.hpp
+        oatpp-boringssl/app/AsyncController.hpp
+        oatpp-boringssl/app/Client.hpp
+        oatpp-boringssl/app/DTOs.hpp
         )
 
 #################################################################

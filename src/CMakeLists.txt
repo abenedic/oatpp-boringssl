@@ -1,17 +1,17 @@
 
 add_library(${OATPP_THIS_MODULE_NAME}
-        oatpp-libressl/Callbacks.cpp
-        oatpp-libressl/Callbacks.hpp
-        oatpp-libressl/Config.cpp
-        oatpp-libressl/Config.hpp
-        oatpp-libressl/Connection.cpp
-        oatpp-libressl/Connection.hpp
-        oatpp-libressl/client/ConnectionProvider.cpp
-        oatpp-libressl/client/ConnectionProvider.hpp
-        oatpp-libressl/server/ConnectionProvider.cpp
-        oatpp-libressl/server/ConnectionProvider.hpp
-        oatpp-libressl/TLSObject.cpp
-        oatpp-libressl/TLSObject.hpp
+        oatpp-boringssl/Callbacks.cpp
+        oatpp-boringssl/Callbacks.hpp
+        oatpp-boringssl/Config.cpp
+        oatpp-boringssl/Config.hpp
+        oatpp-boringssl/Connection.cpp
+        oatpp-boringssl/Connection.hpp
+        oatpp-boringssl/client/ConnectionProvider.cpp
+        oatpp-boringssl/client/ConnectionProvider.hpp
+        oatpp-boringssl/server/ConnectionProvider.cpp
+        oatpp-boringssl/server/ConnectionProvider.hpp
+        oatpp-boringssl/TLSObject.cpp
+        oatpp-boringssl/TLSObject.hpp
 )
 
 set_target_properties(${OATPP_THIS_MODULE_NAME} PROPERTIES
@@ -31,8 +31,8 @@ target_include_directories(${OATPP_THIS_MODULE_NAME}
 )
 
 target_link_libraries(${OATPP_THIS_MODULE_NAME}
-        PUBLIC OpenSSL::SSL
-        PUBLIC OpenSSL::Crypto
+        PUBLIC BoringSSL::SSL
+        PUBLIC BoringSSL::Crypto
 )
 
 #######################################################################################################

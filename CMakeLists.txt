@@ -4,11 +4,11 @@ cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 ## These variables are passed to oatpp-module-install.cmake script
 ## use these variables to configure module installation
 
-set(OATPP_THIS_MODULE_NAME oatpp-libressl) ## name of the module (also name of folders in installation dirs)
-set(OATPP_THIS_MODULE_VERSION "1.0.0") ## version of the module (also sufix of folders in installation dirs)
-set(OATPP_THIS_MODULE_LIBRARIES oatpp-libressl) ## list of libraries to find when find_package is called
-set(OATPP_THIS_MODULE_TARGETS oatpp-libressl) ## list of targets to install
-set(OATPP_THIS_MODULE_DIRECTORIES oatpp-libressl) ## list of directories to install
+set(OATPP_THIS_MODULE_NAME oatpp-boringssl) ## name of the module (also name of folders in installation dirs)
+set(OATPP_THIS_MODULE_VERSION "0.0.1") ## version of the module (also sufix of folders in installation dirs)
+set(OATPP_THIS_MODULE_LIBRARIES oatpp-boringssl) ## list of libraries to find when find_package is called
+set(OATPP_THIS_MODULE_TARGETS oatpp-boringssl) ## list of targets to install
+set(OATPP_THIS_MODULE_DIRECTORIES oatpp-boringssl) ## list of directories to install
 
 ###################################################################################################
 
@@ -93,19 +93,19 @@ message("\n#####################################################################
 message("## ${OATPP_THIS_MODULE_NAME} module. Resolving dependencies...\n")
 
 ##############################
-## Find Libressl dependency
+## Find Boringssl dependency
 
 include(FindPkgConfig)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/module")
 
-find_package(OpenSSL 1.1.1 REQUIRED)
+find_package(BoringSSL REQUIRED)
 
-message("LIBRESSL_INCLUDE_DIR=${OPENSSL_INCLUDE_DIR}")
-message("LIBRESSL_TLS_LIBRARY=${OPENSSL_TLS_LIBRARY}")
-message("LIBRESSL_SSL_LIBRARY=${OPENSSL_SSL_LIBRARY}")
-message("LIBRESSL_CRYPTO_LIBRARY=${OPENSSL_CRYPTO_LIBRARY}")
-message("LIBRESSL_LIBRARIES=${OPENSSL_LIBRARIES}")
-message("LIBRESSL_VERSION=${OPENSSL_VERSION}")
+message("BORINGSSL_INCLUDE_DIR=${BORINGSSL_INCLUDE_DIR}")
+message("BORINGSSL_TLS_LIBRARY=${BORINGSSL_TLS_LIBRARY}")
+message("BORINGSSL_SSL_LIBRARY=${BORINGSSL_SSL_LIBRARY}")
+message("BORINGSSL_CRYPTO_LIBRARY=${BORINGSSL_CRYPTO_LIBRARY}")
+message("BORINGSSL_LIBRARIES=${BORINGSSL_LIBRARIES}")
+message("BORINGSSL_VERSION=${BORINGSSL_VERSION}")
 
 message("\n############################################################################\n")
 

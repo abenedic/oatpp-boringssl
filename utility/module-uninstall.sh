@@ -1,7 +1,7 @@
 #!/bin/sh
 
-MODULE_NAME="oatpp-libressl"
-MODULE_VERSION="0.19.10"
+MODULE_NAME="oatpp-boringssl"
+MODULE_VERSION="0.0.1"
 
 echo "remove include folder: '/usr/local/include/oatpp-$MODULE_VERSION/$MODULE_NAME'"
 rm -rf "/usr/local/include/oatpp-$MODULE_VERSION/$MODULE_NAME"

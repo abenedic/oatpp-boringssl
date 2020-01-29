@@ -3,23 +3,21 @@
 mkdir tmp
 cd tmp
 
-VERSION=3.0.2
-
 #############################################
 ## download libressl-$VERSION
 
-wget https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-$VERSION.tar.gz
+wget https://boringssl.googlesource.com/boringssl/+archive/refs/heads/master.tar.gz
 
 #############################################
 ## clean dir
 
-rm -rf libressl-$VERSION
+rm -rf ./boringssl
 
 #############################################
 ## unpack
 
-tar -xvzf libressl-$VERSION.tar.gz
-cd libressl-$VERSION
+tar -xvzf master.tar.gz
+cd ./boringssl
 
 #############################################
 ## build and install libressl
