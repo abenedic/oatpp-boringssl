@@ -26,7 +26,7 @@
 
 #include <openssl/crypto.h>
 
-namespace oatpp { namespace libressl {
+namespace oatpp { namespace boringssl {
 
 oatpp::concurrency::SpinLock* Callbacks::LOCKS = Callbacks::createLocks();
   

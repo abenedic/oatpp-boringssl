@@ -11,13 +11,14 @@ wget https://boringssl.googlesource.com/boringssl/+archive/refs/heads/master.tar
 #############################################
 ## clean dir
 
-rm -rf ./boringssl
+rm -rf boringssl
+mkdir boringssl
 
 #############################################
 ## unpack
 
-tar -xvzf master.tar.gz
-cd ./boringssl
+tar -xvzf master.tar.gz -C boringssl
+cd boringssl
 
 #############################################
 ## build and install libressl

@@ -22,12 +22,12 @@
  *
  ***************************************************************************/
 
-#ifndef oatpp_libressl_Callbacks_hpp
-#define oatpp_libressl_Callbacks_hpp
+#ifndef oatpp_boringssl_Callbacks_hpp
+#define oatpp_boringssl_Callbacks_hpp
 
 #include "oatpp/core/Types.hpp"
 
-namespace oatpp { namespace libressl {
+namespace oatpp { namespace boringssl {
 
 /**
  * Collection of default-implemented callbacks for
@@ -66,4 +66,4 @@ public:
   
 }}
 
-#endif /* oatpp_libressl_Callbacks_hpp */
+#endif /* oatpp_boringssl_Callbacks_hpp */

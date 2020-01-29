@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+#Kdevelop
+.kdev4/*
+*.kdev4
+
+#build
+build/*
+
+#temp files
+*.kate-swp
+*.*~
+utility/install-deps/tmp/*
