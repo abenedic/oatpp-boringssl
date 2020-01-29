@@ -78,7 +78,7 @@ if (WIN32)
     unset(_programfiles)
 else()
     set(_BORINGSSL_ROOT_PATHS
-            "/usr/local/"
+            "/usr/local"
             )
 endif()
 
@@ -91,7 +91,7 @@ set(_BORINGSSL_ROOT_HINTS_AND_PATHS
 # Find Include Path
 find_path(BORINGSSL_INCLUDE_DIR
         NAMES
-        tls.h
+        openssl/tls1.h
         ${_BORINGSSL_ROOT_HINTS_AND_PATHS}
         PATH_SUFFIXES
         include
@@ -121,29 +121,11 @@ find_library(BORINGSSL_SSL_LIBRARY
 
 
 # Set Libraries
-set(BORINGSSL_LIBRARIES ${BORINGSSL_CRYPTO_LIBRARY} ${BORINGSSL_SSL_LIBRARY} ${BORINGSSL_TLS_LIBRARY})
+set(BORINGSSL_LIBRARIES ${BORINGSSL_CRYPTO_LIBRARY} ${BORINGSSL_SSL_LIBRARY})
 
 # Mark Variables As Advanced
-mark_as_advanced(BORINGSSL_INCLUDE_DIR BORINGSSL_LIBRARIES BORINGSSL_CRYPTO_LIBRARY BORINGSSL_SSL_LIBRARY BORINGSSL_TLS_LIBRARY)
+mark_as_advanced(BORINGSSL_INCLUDE_DIR BORINGSSL_LIBRARIES BORINGSSL_CRYPTO_LIBRARY BORINGSSL_SSL_LIBRARY)
 
-# Find Version File
-if(BORINGSSL_INCLUDE_DIR AND EXISTS "${BORINGSSL_INCLUDE_DIR}/openssl/opensslv.h")
-
-    # Get Version From File
-    file(STRINGS "${BORINGSSL_INCLUDE_DIR}/openssl/opensslv.h" OPENSSLV.H REGEX "#define BORINGSSL_VERSION_TEXT[ ]+\".*\"")
-
-    # Match Version String
-    string(REGEX REPLACE ".*\".*([0-9]+)\\.([0-9]+)\\.([0-9]+)\"" "\\1;\\2;\\3" BORINGSSL_VERSION_LIST "${OPENSSLV.H}")
-
-    # Split Parts
-    list(GET BORINGSSL_VERSION_LIST 0 BORINGSSL_VERSION_MAJOR)
-    list(GET BORINGSSL_VERSION_LIST 1 BORINGSSL_VERSION_MINOR)
-    list(GET BORINGSSL_VERSION_LIST 2 BORINGSSL_VERSION_REVISION)
-
-    # Set Version String
-    set(BORINGSSL_VERSION "${BORINGSSL_VERSION_MAJOR}.${BORINGSSL_VERSION_MINOR}.${BORINGSSL_VERSION_REVISION}")
-
-endif()
 
 # Set Find Package Arguments
 find_package_handle_standard_args(BoringSSL
@@ -151,7 +133,7 @@ find_package_handle_standard_args(BoringSSL
         BORINGSSL_CRYPTO_LIBRARY
         BORINGSSL_INCLUDE_DIR
         VERSION_VAR
-        BORINGSSL_VERSION
+        "1.1.0"
         HANDLE_COMPONENTS
         FAIL_MESSAGE
         "Could NOT find BoringSSL, try setting the path to BoringSSL using the BORINGSSL_ROOT_DIR environment variable"
@@ -190,7 +172,7 @@ if(BORINGSSL_FOUND)
                 INTERFACE_INCLUDE_DIRECTORIES "${BORINGSSL_INCLUDE_DIR}"
                 IMPORTED_LINK_INTERFACE_LANGUAGES "C"
                 IMPORTED_LOCATION "${BORINGSSL_SSL_LIBRARY}"
-                INTERFACE_LINK_LIBRARIES LibreSSL::Crypto
+                INTERFACE_LINK_LIBRARIES BoringSSL::Crypto
         )
 
     endif() # BoringSSL::SSL

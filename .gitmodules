@@ -1,0 +1,6 @@
+[submodule "third_party/boringssl"]
+	path = third_party/boringssl
+	url = git@github.com:google/boringssl.git
+[submodule "utility/install-deps/third_party/boringssl/src"]
+	path = utility/install-deps/third_party/boringssl/src
+	url = git@github.com:google/boringssl.git

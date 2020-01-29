@@ -42,3 +42,5 @@ build/*
 *.kate-swp
 *.*~
 utility/install-deps/tmp/*
+utility/install-deps/third_party/boringssl/build/*
+
