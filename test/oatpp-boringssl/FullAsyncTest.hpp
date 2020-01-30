@@ -27,7 +27,7 @@
 
 #include "oatpp-test/UnitTest.hpp"
 
-namespace oatpp { namespace test { namespace libressl {
+namespace oatpp { namespace test { namespace boringssl {
   
 class FullAsyncTest : public UnitTest {
 private:

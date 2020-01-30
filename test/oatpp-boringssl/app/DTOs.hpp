@@ -28,7 +28,7 @@
 #include "oatpp/core/data/mapping/type/Object.hpp"
 #include "oatpp/core/macro/codegen.hpp"
 
-namespace oatpp { namespace test { namespace libressl { namespace app {
+namespace oatpp { namespace test { namespace boringssl { namespace app {
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 

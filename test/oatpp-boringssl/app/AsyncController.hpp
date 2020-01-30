@@ -32,7 +32,7 @@
 #include "oatpp/core/macro/codegen.hpp"
 #include "oatpp/core/macro/component.hpp"
 
-namespace oatpp { namespace test { namespace libressl { namespace app {
+namespace oatpp { namespace test { namespace boringssl { namespace app {
   
 class AsyncController : public oatpp::web::server::api::ApiController {
 private:

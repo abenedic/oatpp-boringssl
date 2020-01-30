@@ -27,10 +27,10 @@
 
 #include "oatpp/core/Types.hpp"
 
-#include <tls.h>
+#include <tls1.h>
 #include <mutex>
 
-namespace oatpp { namespace libressl {
+namespace oatpp { namespace boringssl {
 
 /**
  * Utility object. Used to manage TLS handle &l:TLSObject::TLSHandle;.

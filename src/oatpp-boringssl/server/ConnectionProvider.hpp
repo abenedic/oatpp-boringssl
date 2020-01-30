@@ -25,12 +25,12 @@
 #ifndef oatpp_libressl_server_ConnectionProvider_hpp
 #define oatpp_libressl_server_ConnectionProvider_hpp
 
-#include "oatpp-libressl/Config.hpp"
-#include "oatpp-libressl/TLSObject.hpp"
+#include "oatpp-boringssl/Config.hpp"
+#include "oatpp-boringssl/TLSObject.hpp"
 
 #include "oatpp/network/server/SimpleTCPConnectionProvider.hpp"
 
-namespace oatpp { namespace libressl { namespace server {
+namespace oatpp { namespace boringssl { namespace server {
 
 /**
  * Libressl server connection provider.

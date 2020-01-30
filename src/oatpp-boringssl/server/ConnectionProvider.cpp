@@ -24,12 +24,12 @@
 
 #include "ConnectionProvider.hpp"
 
-#include "oatpp-libressl/Connection.hpp"
+#include "oatpp-boringssl/Connection.hpp"
 
 #include "oatpp/network/server/SimpleTCPConnectionProvider.hpp"
 #include "oatpp/core/utils/ConversionUtils.hpp"
 
-namespace oatpp { namespace libressl { namespace server {
+namespace oatpp { namespace boringssl { namespace server {
 
 ConnectionProvider::ConnectionProvider(const std::shared_ptr<Config>& config,
                                        const std::shared_ptr<oatpp::network::ServerConnectionProvider>& streamProvider)

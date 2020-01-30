@@ -28,7 +28,7 @@
 #include "oatpp/web/client/ApiClient.hpp"
 #include "oatpp/core/macro/codegen.hpp"
 
-namespace oatpp { namespace test { namespace libressl { namespace app {
+namespace oatpp { namespace test { namespace boringssl { namespace app {
   
 class Client : public oatpp::web::client::ApiClient {
 #include OATPP_CODEGEN_BEGIN(ApiClient)

@@ -30,7 +30,7 @@
 #include "oatpp/core/base/memory/ObjectPool.hpp"
 #include "oatpp/core/data/stream/Stream.hpp"
 
-namespace oatpp { namespace libressl {
+namespace oatpp { namespace boringssl {
 
 /**
  * TLS Connection implementation. Extends &id:oatpp::base::Countable; and &id:oatpp::data::stream::IOStream;.

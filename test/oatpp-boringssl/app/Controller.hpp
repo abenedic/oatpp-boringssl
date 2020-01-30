@@ -34,7 +34,7 @@
 
 #include <sstream>
 
-namespace oatpp { namespace test { namespace libressl { namespace app {
+namespace oatpp { namespace test { namespace boringssl { namespace app {
 
 class Controller : public oatpp::web::server::api::ApiController {
 private:

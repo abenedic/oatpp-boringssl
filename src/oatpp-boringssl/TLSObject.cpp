@@ -24,7 +24,7 @@
 
 #include "TLSObject.hpp"
 
-namespace oatpp { namespace libressl {
+namespace oatpp { namespace boringssl {
 
 TLSObject::TLSObject(TLSHandle tlsHandle, Type type, const oatpp::String& serverName)
   : m_tlsHandle(tlsHandle)

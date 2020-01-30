@@ -30,7 +30,7 @@
 #include <openssl/tls1.h>
 #include <memory>
 
-namespace oatpp { namespace libressl {
+namespace oatpp { namespace boringssl {
 
 /**
  * Wrapper over `tls_config`.

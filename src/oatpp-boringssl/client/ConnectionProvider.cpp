@@ -24,13 +24,13 @@
 
 #include "ConnectionProvider.hpp"
 
-#include "oatpp-libressl/Connection.hpp"
+#include "oatpp-boringssl/Connection.hpp"
 
 #include "oatpp/network/client/SimpleTCPConnectionProvider.hpp"
 
 #include <openssl/crypto.h>
 
-namespace oatpp { namespace libressl { namespace client {
+namespace oatpp { namespace boringssl { namespace client {
 
 ConnectionProvider::ConnectionProvider(const std::shared_ptr<Config>& config,
                                        const std::shared_ptr<oatpp::network::ClientConnectionProvider>& streamProvider)

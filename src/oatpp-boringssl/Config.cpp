@@ -24,7 +24,7 @@
 
 #include "Config.hpp"
 
-namespace oatpp { namespace libressl {
+namespace oatpp { namespace boringssl {
 
 Config::Config()
   : m_config(tls_config_new())

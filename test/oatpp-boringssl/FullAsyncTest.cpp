@@ -26,10 +26,10 @@
 
 #include "app/Client.hpp"
 
-#include "oatpp-libressl/app/AsyncController.hpp"
+#include "oatpp-boringssl/app/AsyncController.hpp"
 
-#include "oatpp-libressl/client/ConnectionProvider.hpp"
-#include "oatpp-libressl/server/ConnectionProvider.hpp"
+#include "oatpp-boringssl/client/ConnectionProvider.hpp"
+#include "oatpp-boringssl/server/ConnectionProvider.hpp"
 
 #include "oatpp/web/client/HttpRequestExecutor.hpp"
 
@@ -49,7 +49,7 @@
 
 #include "oatpp-test/web/ClientServerTestRunner.hpp"
 
-namespace oatpp { namespace test { namespace libressl {
+namespace oatpp { namespace test { namespace boringssl {
 
 namespace {
 
