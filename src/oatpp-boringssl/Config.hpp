@@ -22,8 +22,8 @@
  *
  ***************************************************************************/
 
-#ifndef oatpp_libressl_Config_hpp
-#define oatpp_libressl_Config_hpp
+#ifndef oatpp_boringssl_Config_hpp
+#define oatpp_boringssl_Config_hpp
 
 #include "oatpp/core/Types.hpp"
 
@@ -88,4 +88,4 @@ public:
   
 }}
 
-#endif /* oatpp_libressl_Config_hpp */
+#endif /* oatpp_boringssl_Config_hpp */

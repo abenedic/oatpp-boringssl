@@ -44,15 +44,15 @@ std::shared_ptr<Config> Config::createDefaultServerConfigShared(const char* serv
   tls_config_set_protocols(config->getTLSConfig(), protocols);
   
   if(tls_config_set_ciphers(config->getTLSConfig(), ciphers) < 0) {
-    throw std::runtime_error("[oatpp::libressl::Config::createDefaultServerConfigShared]: failed call to tls_config_set_ciphers()");
+    throw std::runtime_error("[oatpp::boringssl::Config::createDefaultServerConfigShared]: failed call to tls_config_set_ciphers()");
   }
   
   if(tls_config_set_key_file(config->getTLSConfig(), privateKeyFile) < 0) {
-    throw std::runtime_error("[oatpp::libressl::Config::createDefaultServerConfigShared]: failed call to tls_config_set_key_file()");
+    throw std::runtime_error("[oatpp::boringssl::Config::createDefaultServerConfigShared]: failed call to tls_config_set_key_file()");
   }
   
   if(tls_config_set_cert_file(config->getTLSConfig(), serverCertFile) < 0) {
-    throw std::runtime_error("[oatpp::libressl::Config::createDefaultServerConfigShared]: failed call to tls_config_set_cert_file()");
+    throw std::runtime_error("[oatpp::boringssl::Config::createDefaultServerConfigShared]: failed call to tls_config_set_cert_file()");
   }
   
   return config;

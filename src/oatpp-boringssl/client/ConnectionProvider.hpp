@@ -22,8 +22,8 @@
  *
  ***************************************************************************/
 
-#ifndef oatpp_libressl_client_ConnectionProvider_hpp
-#define oatpp_libressl_client_ConnectionProvider_hpp
+#ifndef oatpp_boringssl_client_ConnectionProvider_hpp
+#define oatpp_boringssl_client_ConnectionProvider_hpp
 
 #include "oatpp-boringssl/Config.hpp"
 #include "oatpp-boringssl/TLSObject.hpp"
@@ -33,7 +33,7 @@
 namespace oatpp { namespace boringssl { namespace client {
 
 /**
- * Libressl client connection provider.
+ * boringssl client connection provider.
  * Extends &id:oatpp::base::Countable;, &id:oatpp::network::ClientConnectionProvider;.
  */
 class ConnectionProvider : public base::Countable, public oatpp::network::ClientConnectionProvider {
@@ -45,7 +45,7 @@ private:
 public:
   /**
    * Constructor.
-   * @param config - &id:oatpp::libressl::Config;.
+   * @param config - &id:oatpp::boringssl::Config;.
    * @param streamProvider - provider of underlying transport stream. &id:oatpp::network::ClientConnectionProvider;.
    */
   ConnectionProvider(const std::shared_ptr<Config>& config, const std::shared_ptr<oatpp::network::ClientConnectionProvider>& streamProvider);
@@ -53,7 +53,7 @@ public:
 
   /**
    * Create shared ConnectionProvider.
-   * @param config - &id:oatpp::libressl::Config;.
+   * @param config - &id:oatpp::boringssl::Config;.
    * @param streamProvider - provider of underlying transport stream. &id:oatpp::network::ClientConnectionProvider;.
    * @return - `std::shared_ptr` to ConnectionProvider.
    */
@@ -63,7 +63,7 @@ public:
   /**
    * Create shared ConnectionProvider using &id:oatpp::network::client::SimpleTCPConnectionProvider;
    * as a provider of underlying transport stream.
-   * @param config - &id:oatpp::libressl::Config;.
+   * @param config - &id:oatpp::boringssl::Config;.
    * @param host - host.
    * @param port - port.
    * @return - `std::shared_ptr` to ConnectionProvider.
@@ -102,4 +102,4 @@ public:
   
 }}}
 
-#endif /* oatpp_libressl_client_ConnectionProvider_hpp */
+#endif /* oatpp_boringssl_client_ConnectionProvider_hpp */

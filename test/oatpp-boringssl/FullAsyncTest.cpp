@@ -81,11 +81,11 @@ public:
       streamProvider = oatpp::network::server::SimpleTCPConnectionProvider::createShared(m_port);
     }
 
-    OATPP_LOGD("oatpp::libressl::Config", "pem='%s'", CERT_PEM_PATH);
-    OATPP_LOGD("oatpp::libressl::Config", "crt='%s'", CERT_CRT_PATH);
+    OATPP_LOGD("oatpp::boringssl::Config", "pem='%s'", CERT_PEM_PATH);
+    OATPP_LOGD("oatpp::boringssl::Config", "crt='%s'", CERT_CRT_PATH);
 
-    auto config = oatpp::libressl::Config::createDefaultServerConfigShared(CERT_CRT_PATH, CERT_PEM_PATH);
-    return oatpp::libressl::server::ConnectionProvider::createShared(config, streamProvider);
+    auto config = oatpp::boringssl::Config::createDefaultServerConfigShared(CERT_CRT_PATH, CERT_PEM_PATH);
+    return oatpp::boringssl::server::ConnectionProvider::createShared(config, streamProvider);
 
   }());
 
@@ -114,8 +114,8 @@ public:
       streamProvider = oatpp::network::client::SimpleTCPConnectionProvider::createShared("127.0.0.1", m_port);
     }
 
-    auto config = oatpp::libressl::Config::createDefaultClientConfigShared();
-    return oatpp::libressl::client::ConnectionProvider::createShared(config, streamProvider);
+    auto config = oatpp::boringssl::Config::createDefaultClientConfigShared();
+    return oatpp::boringssl::client::ConnectionProvider::createShared(config, streamProvider);
 
   }());
 

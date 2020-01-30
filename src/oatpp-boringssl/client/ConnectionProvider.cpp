@@ -43,10 +43,10 @@ ConnectionProvider::ConnectionProvider(const std::shared_ptr<Config>& config,
 
   auto calback = CRYPTO_get_locking_callback();
   if(!calback) {
-    OATPP_LOGD("[oatpp::libressl::client::ConnectionProvider::ConnectionProvider()]",
-               "WARNING. libressl. CRYPTO_set_locking_callback is NOT set. "
-               "This can cause problems using libressl in multithreaded environment! "
-               "Please call oatpp::libressl::Callbacks::setDefaultCallbacks() or "
+    OATPP_LOGD("[oatpp::boringssl::client::ConnectionProvider::ConnectionProvider()]",
+               "WARNING. boringssl. CRYPTO_set_locking_callback is NOT set. "
+               "This can cause problems using boringssl in multithreaded environment! "
+               "Please call oatpp::boringssl::Callbacks::setDefaultCallbacks() or "
                "consider setting custom locking_callback.");
   }
 

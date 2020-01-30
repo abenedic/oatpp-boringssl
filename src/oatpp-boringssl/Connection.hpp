@@ -22,8 +22,8 @@
  *
  ***************************************************************************/
 
-#ifndef oatpp_libressl_Connection_hpp
-#define oatpp_libressl_Connection_hpp
+#ifndef oatpp_boringssl_Connection_hpp
+#define oatpp_boringssl_Connection_hpp
 
 #include "TLSObject.hpp"
 
@@ -96,7 +96,7 @@ public:
 
   /**
    * Constructor.
-   * @param tlsObject - &id:oatpp::libressl::TLSObject;.
+   * @param tlsObject - &id:oatpp::boringssl::TLSObject;.
    * @param stream - underlying transport stream. &id:oatpp::data::stream::IOStream;.
    */
   Connection(const std::shared_ptr<TLSObject>& tlsObject,
@@ -180,4 +180,4 @@ public:
   
 }}
 
-#endif /* oatpp_libressl_Connection_hpp */
+#endif /* oatpp_boringssl_Connection_hpp */

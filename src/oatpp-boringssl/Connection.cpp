@@ -48,7 +48,7 @@ void Connection::ConnectionContext::init() {
       auto res = tls_accept_cbs(tlsObject->getTLSHandle(), &m_connection->m_tlsHandle, readCallback, writeCallback, m_connection);
 
       if (res != 0) {
-        OATPP_LOGD("[oatpp::libressl::Connection::ConnectionContext::init()]", "Error on call to 'tls_accept_cbs'. res=%d", res);
+        OATPP_LOGD("[oatpp::boringssl::Connection::ConnectionContext::init()]", "Error on call to 'tls_accept_cbs'. res=%d", res);
       }
 
     } else if (tlsObject->getType() == TLSObject::Type::CLIENT) {
@@ -65,11 +65,11 @@ void Connection::ConnectionContext::init() {
       tlsObject->annul();
 
       if (res != 0) {
-        OATPP_LOGD("[oatpp::libressl::Connection::ConnectionContext::init()]", "Error on call to 'tls_connect_cbs'. res=%d", res);
+        OATPP_LOGD("[oatpp::boringssl::Connection::ConnectionContext::init()]", "Error on call to 'tls_connect_cbs'. res=%d", res);
       }
 
     } else {
-      throw std::runtime_error("[oatpp::libressl::Connection::ConnectionContext::init()]: Error. Unknown TLSObject type.");
+      throw std::runtime_error("[oatpp::boringssl::Connection::ConnectionContext::init()]: Error. Unknown TLSObject type.");
     }
 
   }
@@ -101,7 +101,7 @@ async::CoroutineStarter Connection::ConnectionContext::initAsync() {
         return yieldTo(&HandshakeCoroutine::initClient);
       }
 
-      throw std::runtime_error("[oatpp::libressl::Connection::ConnectionContext::init()]: Error. Unknown TLSObject type.");
+      throw std::runtime_error("[oatpp::boringssl::Connection::ConnectionContext::init()]: Error. Unknown TLSObject type.");
 
     }
 
@@ -111,7 +111,7 @@ async::CoroutineStarter Connection::ConnectionContext::initAsync() {
       auto res = tls_accept_cbs(tlsObject->getTLSHandle(), &m_connection->m_tlsHandle, readCallback, writeCallback, m_connection);
 
       if (res != 0) {
-        return error<Error>("[oatpp::libressl::Connection::ConnectionContext::initAsync(){initServer()}]: Error. Handshake failed.");
+        return error<Error>("[oatpp::boringssl::Connection::ConnectionContext::initAsync(){initServer()}]: Error. Handshake failed.");
       }
 
       /* Handshake successful */
@@ -135,7 +135,7 @@ async::CoroutineStarter Connection::ConnectionContext::initAsync() {
       tlsObject->annul();
 
       if (res != 0) {
-        return error<Error>("[oatpp::libressl::Connection::ConnectionContext::initAsync(){initClient()}]: Error. Handshake failed.");
+        return error<Error>("[oatpp::boringssl::Connection::ConnectionContext::initAsync(){initClient()}]: Error. Handshake failed.");
       }
 
       m_connection->m_initialized = true;
@@ -240,7 +240,7 @@ Connection::Connection(const std::shared_ptr<TLSObject>& tlsObject,
 
   auto& streamInContext = stream->getInputStreamContext();
   data::stream::Context::Properties inProperties(streamInContext.getProperties());
-  inProperties.put("tls", "libressl");
+  inProperties.put("tls", "boringssl");
   inProperties.getAll();
 
   m_inContext = new ConnectionContext(this, streamInContext.getStreamType(), std::move(inProperties));
@@ -251,7 +251,7 @@ Connection::Connection(const std::shared_ptr<TLSObject>& tlsObject,
   } else {
 
     data::stream::Context::Properties outProperties(streamOutContext.getProperties());
-    outProperties.put("tls", "libressl");
+    outProperties.put("tls", "boringssl");
     outProperties.getAll();
 
     m_outContext = new ConnectionContext(this, streamOutContext.getStreamType(), std::move(outProperties));
@@ -292,7 +292,7 @@ oatpp::v_io_size Connection::write(const void *buff, v_buff_size count, async::A
   auto result = tls_write(m_tlsHandle, buff, count);
 
   if(!ioGuard.unpackAndCheck()) {
-    OATPP_LOGE("[oatpp::libressl::Connection::write(...)]", "Error. Packed action check failed!!!");
+    OATPP_LOGE("[oatpp::boringssl::Connection::write(...)]", "Error. Packed action check failed!!!");
     return oatpp::IOError::BROKEN_PIPE;
   }
 
@@ -316,7 +316,7 @@ oatpp::v_io_size Connection::read(void *buff, v_buff_size count, async::Action& 
   auto result = tls_read(m_tlsHandle, buff, count);
 
   if(!ioGuard.unpackAndCheck()) {
-    OATPP_LOGE("[oatpp::libressl::Connection::read(...)]", "Error. Packed action check failed!!!");
+    OATPP_LOGE("[oatpp::boringssl::Connection::read(...)]", "Error. Packed action check failed!!!");
     return oatpp::IOError::BROKEN_PIPE;
   }
 

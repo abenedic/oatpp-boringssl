@@ -5,7 +5,7 @@
 #include "FullAsyncTest.hpp"
 #include "FullAsyncClientTest.hpp"
 
-#include "oatpp-libressl/Callbacks.hpp"
+#include "oatpp-boringssl/Callbacks.hpp"
 
 #include "oatpp/core/concurrency/SpinLock.hpp"
 #include "oatpp/core/base/Environment.hpp"
@@ -17,38 +17,38 @@ namespace {
 
 void runTests() {
 
-  /* set lockingCallback for libressl */
-  oatpp::libressl::Callbacks::setDefaultCallbacks();
+  /* set lockingCallback for boringssl */
+  oatpp::boringssl::Callbacks::setDefaultCallbacks();
 
   /* ignore SIGPIPE */
   std::signal(SIGPIPE, SIG_IGN);
 
   {
 
-    oatpp::test::libressl::FullTest test_virtual(0, 100);
+    oatpp::test::boringssl::FullTest test_virtual(0, 100);
     test_virtual.run();
 
-    oatpp::test::libressl::FullTest test_port(8443, 10);
+    oatpp::test::boringssl::FullTest test_port(8443, 10);
     test_port.run();
 
   }
 
   {
 
-    oatpp::test::libressl::FullAsyncTest test_virtual(0, 100);
+    oatpp::test::boringssl::FullAsyncTest test_virtual(0, 100);
     test_virtual.run();
 
-    oatpp::test::libressl::FullAsyncTest test_port(8443, 10);
+    oatpp::test::boringssl::FullAsyncTest test_port(8443, 10);
     test_port.run();
 
   }
 
   {
 
-    oatpp::test::libressl::FullAsyncClientTest test_virtual(0, 10);
+    oatpp::test::boringssl::FullAsyncClientTest test_virtual(0, 10);
     test_virtual.run(20); // - run this test 20 times.
 
-    oatpp::test::libressl::FullAsyncClientTest test_port(8443, 10);
+    oatpp::test::boringssl::FullAsyncClientTest test_port(8443, 10);
     test_port.run(1);
 
   }

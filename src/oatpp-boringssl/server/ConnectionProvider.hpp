@@ -22,8 +22,8 @@
  *
  ***************************************************************************/
 
-#ifndef oatpp_libressl_server_ConnectionProvider_hpp
-#define oatpp_libressl_server_ConnectionProvider_hpp
+#ifndef oatpp_boringssl_server_ConnectionProvider_hpp
+#define oatpp_boringssl_server_ConnectionProvider_hpp
 
 #include "oatpp-boringssl/Config.hpp"
 #include "oatpp-boringssl/TLSObject.hpp"
@@ -33,7 +33,7 @@
 namespace oatpp { namespace boringssl { namespace server {
 
 /**
- * Libressl server connection provider.
+ * boringssl server connection provider.
  * Extends &id:oatpp::base::Countable;, &id:oatpp::network::ServerConnectionProvider;.
  */
 class ConnectionProvider : public oatpp::base::Countable, public oatpp::network::ServerConnectionProvider {
@@ -47,7 +47,7 @@ private:
 public:
   /**
    * Constructor.
-   * @param config - &id:oatpp::libressl::Config;.
+   * @param config - &id:oatpp::boringssl::Config;.
    * @param streamProvider - provider of underlying transport stream. &id:oatpp::network::ServerConnectionProvider;.
    */
   ConnectionProvider(const std::shared_ptr<Config>& config,
@@ -56,7 +56,7 @@ public:
 
   /**
    * Create shared ConnectionProvider.
-   * @param config - &id:oatpp::libressl::Config;.
+   * @param config - &id:oatpp::boringssl::Config;.
    * @param streamProvider - provider of underlying transport stream. &id:oatpp::network::ServerConnectionProvider;.
    * @return - `std::shared_ptr` to ConnectionProvider.
    */
@@ -66,7 +66,7 @@ public:
   /**
    * Create shared ConnectionProvider using &id:oatpp::network::server::SimpleTCPConnectionProvider;
    * as a provider of underlying transport stream.
-   * @param config - &id:oatpp::libressl::Config;.
+   * @param config - &id:oatpp::boringssl::Config;.
    * @param port - port to listen on.
    * @return - `std::shared_ptr` to ConnectionProvider.
    */
@@ -104,7 +104,7 @@ public:
      *  to accept connections in a seperate thread with the blocking accept()
      *  and then process connections in Asynchronous manner with non-blocking read/write
      */
-    throw std::runtime_error("oatpp::libressl::server::ConnectionProvider::getConnectionAsync not implemented.");
+    throw std::runtime_error("oatpp::boringssl::server::ConnectionProvider::getConnectionAsync not implemented.");
   }
 
   /**
@@ -120,4 +120,4 @@ public:
   
 }}}
 
-#endif /* oatpp_libressl_server_ConnectionProvider_hpp */
+#endif /* oatpp_boringssl_server_ConnectionProvider_hpp */

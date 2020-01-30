@@ -22,8 +22,8 @@
  *
  ***************************************************************************/
 
-#ifndef oatpp_libressl_TLSObject_hpp
-#define oatpp_libressl_TLSObject_hpp
+#ifndef oatpp_boringssl_TLSObject_hpp
+#define oatpp_boringssl_TLSObject_hpp
 
 #include "oatpp/core/Types.hpp"
 
@@ -110,4 +110,4 @@ public:
 
 }}
 
-#endif // oatpp_libressl_TLSObject_hpp
+#endif // oatpp_boringssl_TLSObject_hpp

@@ -31,7 +31,7 @@ namespace oatpp { namespace boringssl {
 
 /**
  * Collection of default-implemented callbacks for
- * libressl
+ * boringssl
  */
 class Callbacks {
 private:
@@ -47,13 +47,13 @@ private:
 public:
   
   /**
-   * Set default callbacks for libressl
+   * Set default callbacks for boringssl
    */
   static void setDefaultCallbacks();
 
   /**
    * Oatpp-default implementation of lockingCallback passed to CRYPTO_set_locking_callback().
-   * must be set in case libressl is used in multithreaded environment.
+   * must be set in case boringssl is used in multithreaded environment.
    * Locking is done using &id:oatpp::concurrency::SpinLock;.
    * @param mode
    * @param n - index of the lock.
